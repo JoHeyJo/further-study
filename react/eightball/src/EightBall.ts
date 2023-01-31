@@ -14,6 +14,15 @@ import { random } from "./utils";
  * EightBall -> App
  */
 
+interface Ioption {
+  msg: string;
+  color: string;
+}
+
+interface Icount {
+  
+}
+
 function EightBall() {
   const [color, setColor] = useState('black');
   const [msg, setMsg] = useState("Think of a question...");
@@ -35,7 +44,7 @@ function EightBall() {
   }
 
   /** adjusts count for each color */
-  function trackColorCount(option) {
+  function trackColorCount(option: Ioption) {
     const color = option.color;
 
     setCount(curr => {
