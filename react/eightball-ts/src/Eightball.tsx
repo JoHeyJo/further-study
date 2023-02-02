@@ -27,7 +27,7 @@ function EightBall() {
     console.log(answer)
   }
 
-  /** resets eightball to default state when clicked */
+  /** Resets eightball to default state when clicked */
   function reset(){
     setAnswer(defaultOption)
   }
