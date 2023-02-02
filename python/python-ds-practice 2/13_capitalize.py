@@ -8,3 +8,4 @@ def capitalize(phrase):
         'Only first word'
     """
 
+    return phrase.capitalize()
