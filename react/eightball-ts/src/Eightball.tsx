@@ -27,6 +27,11 @@ function EightBall() {
     console.log(answer)
   }
 
+  /** resets eightball to default state when clicked */
+  function reset(){
+    setAnswer(defaultOption)
+  }
+
   return (
     <div className="EightBall-interface">
       <div className="EightBall-sphere"
@@ -36,6 +41,7 @@ function EightBall() {
           {answer.msg}
         </div>
       </div>
+      <button onClick={reset}>RESET</button>
     </div>
   );
 }
