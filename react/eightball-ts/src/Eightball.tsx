@@ -1,27 +1,46 @@
 import React, { useState } from "react";
 import './Eightball.css';
+import { ranNum } from './utils'
+
+
+interface Ioption {
+  msg: string;
+  color: string;
+}
 
 const defaultOption: Ioption = { msg: "Think of a question", color: "black" };
 
+
+/** Eightball component
+ * 
+ * state: answer => {msg:string, color: string}
+ * 
+ * Eightball -> App
+ */
+
 function EightBall() {
   const [answer, setAnswer] = useState<Ioption>(defaultOption);
+
+  /** changes the color msg when eightball is clicked */
+  function shakeEightball() {
+    setAnswer(defaultColors[ranNum(defaultColors.length)])
+    console.log(answer)
+  }
+
   return (
     <div className="EightBall-interface">
-      <div className="EightBall-sphere">
-      <div className="EightBall-text">
-        {answer.msg}
-      </div>
+      <div className="EightBall-sphere"
+        onClick={shakeEightball}
+        style={{backgroundColor: answer.color}}>
+        <div className="EightBall-text">
+          {answer.msg}
+        </div>
       </div>
     </div>
   );
 }
 
 export default EightBall;
-
-interface Ioption {
-  msg: string;
-  color: string;
-}
 
 const defaultColors: Ioption[] = [
   { msg: "It is certain.", color: "green" },
