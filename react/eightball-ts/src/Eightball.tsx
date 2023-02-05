@@ -8,7 +8,19 @@ interface Ioption {
   color: string;
 }
 
+interface IColorCount {
+  red: number;
+  goldenrod: number;
+  green: number;
+}
+
 const defaultOption: Ioption = { msg: "Think of a question", color: "black" };
+
+const colorCount: IColorCount = {
+  red: 0,
+  goldenrod: 0,
+  green: 0
+}
 
 
 /** Eightball component
@@ -20,29 +32,42 @@ const defaultOption: Ioption = { msg: "Think of a question", color: "black" };
 
 function EightBall() {
   const [answer, setAnswer] = useState<Ioption>(defaultOption);
+  const [count, setCount] = useState<IColorCount>(colorCount)
 
   /** changes the color msg when eightball is clicked */
-  function shakeEightball() {
+  function shakeEightball(): void {
     setAnswer(defaultColors[ranNum(defaultColors.length)])
     console.log(answer)
+    updateCount(answer.color)
+  }
+
+  /** update count of corresponding color when eightball is clicked */
+  function updateCount(color: string) {
+    setCount(curr =>   
+      curr[color] += 1
+    )
   }
 
   /** Resets eightball to default state when clicked */
-  function reset(){
-    setAnswer(defaultOption)
+  function reset(): void {
+    setAnswer(defaultOption);
+    setCount(colorCount);
   }
 
   return (
-    <div className="EightBall-interface">
-      <div className="EightBall-sphere"
-        onClick={shakeEightball}
-        style={{backgroundColor: answer.color}}>
-        <div className="EightBall-text">
-          {answer.msg}
+    <>
+    <div className="Eightball-counter">{count.red}{count.goldenrod}{count.green} </div>
+      <div className="EightBall-interface">
+        <div className="EightBall-sphere"
+          onClick={shakeEightball}
+          style={{ backgroundColor: answer.color }}>
+          <div className="EightBall-text">
+            {answer.msg}
+          </div>
         </div>
+        <button onClick={reset}>RESET</button>
       </div>
-      <button onClick={reset}>RESET</button>
-    </div>
+    </>
   );
 }
 
