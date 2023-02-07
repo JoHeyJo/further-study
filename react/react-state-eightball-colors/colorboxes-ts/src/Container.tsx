@@ -23,7 +23,7 @@ interface IContainer {
  * - numBoxes: num of boxes to manage
  * 
  * state:
- * - boxeColors: [color,color,color...]
+ * - boxes: [color,color,color...]
  * 
  * 
  */

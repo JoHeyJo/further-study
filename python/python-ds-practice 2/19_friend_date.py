@@ -16,3 +16,19 @@ def friend_date(a, b):
         >>> friend_date(sauron, gandalf)
         True
     """
+
+    # iterative approach
+    # for x in a[2]:
+    #     if x in b[2]:
+    #         return True
+
+    # leveraging comprehensions
+
+    # if set(a[2]) & set(b[2]):
+    #     return True
+    # else:
+    #     return False
+
+    # converting to boolean
+
+    return bool(set(a[2]) & set(b[2]))

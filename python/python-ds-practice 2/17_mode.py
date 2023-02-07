@@ -12,13 +12,25 @@ def mode(nums):
         2
     """
 
+    # map num -> occurrences. Iterate through map checking for largest number 
+
+    # counter = {}
+    # for num in nums:
+    #     counter[num] = counter.get(num,0) + 1
+    # max_num = 0
+    # num = 0
+    # for (key,val) in counter.items():
+    #     if(max_num < val):
+    #         max_num = val
+    #         num = key
+    # return num
+    
+    # find max num, then map nums -> occurrences. Use max_num to find matching val => key
+    max_num =max(nums)
     counter = {}
     for num in nums:
-        counter[num] = counter.get(num,0) + 1
-    max_num = 0
-    num = 0
+        counter[num] = counter.get(num,0) +1
+
     for (key,val) in counter.items():
-        if(max_num < val):
-            max_num = val
-            num = key
-    return num
+        if(val == max_num):
+            return key
