@@ -2,7 +2,11 @@ interface IPokecard {
   id: number;
   name: string;
   type: string;
-  exp: number;
+  base_experience: number;
 }
 
-export type { IPokecard };
+interface IPokedex {
+  pokemon: IPokecard[];
+}
+
+export type { IPokecard, IPokedex };

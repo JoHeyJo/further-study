@@ -1,9 +1,26 @@
 import React from 'react';
+import { IPokecard, IPokedex } from './interfaces';
+import Pokecard from './Pokecard';
 
-function Pokedex() {
+/** Contains all individual pokemon cards
+ * 
+ * Props:
+ * - pokemon: [{},{},..]
+ * 
+ */
+function Pokedex({ pokemon}: IPokedex) {
   return (
-    <></>
+    <div className='Pokedex-pokedex'>
+      {pokemon.map((p) => <div>
+        <Pokecard
+          id={p.id} 
+          name={p.name}
+          type={p.type}
+          base_experience={p.base_experience}/>
+          </div>)}
+    </div>
   )
 }
 
 export default Pokedex;
+
