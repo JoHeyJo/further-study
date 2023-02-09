@@ -13,6 +13,7 @@ function Pokegame({ pokemon }: IPokedex) {
     while (hand.length < 4) {
       hand.push(pokemon[ranNum(pokemon.length)])
     }
+    return hand
   }
 
   const hand1 = pullCards();
@@ -26,4 +27,4 @@ function Pokegame({ pokemon }: IPokedex) {
   )
 }
 
-export default Pokegame
+export default Pokegame;

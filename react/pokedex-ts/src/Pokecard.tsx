@@ -13,9 +13,9 @@ const BASE_API = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
  * 
  * Pokedex -> Pokecard
  */
-function Pokecard({ id, name, type, base_experience }: IPokecard){
+function Pokecard({ id, name, type, base_experience }: IPokecard) {
 
-  const imgSource = BASE_API + `${ id }.png.`
+  const imgSource = BASE_API + `${id}.png.`
   return (
     <div className="Pokecard-card">
       <img className="Pokecard-img" src={imgSource}></img>
