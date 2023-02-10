@@ -21,8 +21,10 @@ function Pokegame({ pokemon }: IPokedex) {
 
   return (
     <div>
-      <div><Pokedex pokemon={hand1}/></div>
-      <div><Pokedex pokemon={hand2}/></div>
+      <>HAND1</>
+      <div className='Pokegame-hands'><Pokedex pokemon={hand1}/></div>
+      <>HAND2</>
+      <div className='Pokegame-hands'><Pokedex pokemon={hand2}/></div>
     </div>
   )
 }

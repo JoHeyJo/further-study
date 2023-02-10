@@ -1,5 +1,6 @@
 import React from "react";
 import { IPokecard } from './interfaces'
+import './pokecard.css';
 
 const BASE_API = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
 

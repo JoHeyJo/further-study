@@ -1,6 +1,7 @@
 import React from 'react';
 import { IPokecard, IPokedex } from './interfaces';
 import Pokecard from './Pokecard';
+import './pokedex.css'
 
 /** Contains all individual pokemon cards
  * 
