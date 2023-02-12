@@ -5,8 +5,12 @@ interface IPokecard {
   base_experience: number;
 }
 
-interface IPokedex {
+interface IPokeGame {
   pokemon: IPokecard[];
 }
 
-export type { IPokecard, IPokedex };
+interface IPokedex extends IPokeGame {
+  totalXp: number;
+}
+
+export type { IPokecard, IPokedex, IPokeGame };

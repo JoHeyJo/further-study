@@ -1,10 +1,10 @@
 import React from 'react';
-import { IPokedex } from './interfaces';
+import { IPokeGame } from './interfaces';
 import Pokedex from './Pokedex';
 
 const ranNum = (maxNum: number): number => Math.floor(Math.random() * maxNum)
 
-function Pokegame({ pokemon }: IPokedex) {
+function Pokegame({ pokemon }: IPokeGame) {
 
   const dexSize = pokemon.length;
 
@@ -22,9 +22,15 @@ function Pokegame({ pokemon }: IPokedex) {
   return (
     <div>
       <>HAND1</>
-      <div className='Pokegame-hands'><Pokedex pokemon={hand1}/></div>
+      <div className='Pokegame-hands'><Pokedex
+        pokemon={hand1}
+        totalXp={hand1.reduce((total, card) => total += card.base_experience, 0)}
+      /></div>
       <>HAND2</>
-      <div className='Pokegame-hands'><Pokedex pokemon={hand2}/></div>
+      <div className='Pokegame-hands'><Pokedex
+        pokemon={hand2}
+        totalXp={hand2.reduce((total, card) => total += card.base_experience, 0)}
+      /></div>
     </div>
   )
 }

@@ -9,7 +9,7 @@ import './pokedex.css'
  * - pokemon: [{},{},..]
  * 
  */
-function Pokedex({ pokemon}: IPokedex) {
+function Pokedex({ pokemon, totalXp}: IPokedex) {
   return (
     <div className='Pokedex-pokedex'>
       {pokemon.map((p) => <div>
@@ -19,6 +19,7 @@ function Pokedex({ pokemon}: IPokedex) {
           type={p.type}
           base_experience={p.base_experience}/>
           </div>)}
+          <div className='Pokedex-score'>{totalXp}</div>
     </div>
   )
 }
