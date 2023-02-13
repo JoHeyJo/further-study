@@ -11,6 +11,7 @@ interface IPokeGame {
 
 interface IPokedex extends IPokeGame {
   totalXp: number;
+  isWinner: boolean;
 }
 
 export type { IPokecard, IPokedex, IPokeGame };
