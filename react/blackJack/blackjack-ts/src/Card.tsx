@@ -1,11 +1,8 @@
 import React from 'react';
+import { ICard } from './interfaces';
 
 const BASE_URL = "https://deckofcardsapi.com/static/img/"
 
-interface ICard {
-  value: string;
-  suit: string;
-}
 
 /** renders card from API based on id
  * 
@@ -17,7 +14,6 @@ interface ICard {
  */
 function Card({ value, suit }: ICard) {
   const cardUrl = BASE_URL + value + suit + '.png';
-  console.log(cardUrl)
   return (
     <div className='Card-card'>
       <img src={cardUrl} alt={value+suit} />
