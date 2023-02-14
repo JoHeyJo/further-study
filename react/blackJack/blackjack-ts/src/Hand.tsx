@@ -26,8 +26,6 @@ function createDeckOfCards(): Ideck[] {
   return deck;
 }
 
-
-
 interface IDeck {
   deck: string[];
 }
@@ -45,6 +43,8 @@ function Hand() {
   const card1 = deck[randomCard()];
   const card2 = deck[randomCard()];
 
+  const score = +card1.value + +card2.value
+
 
   return (
     <div className="Hand-table">
@@ -54,6 +54,8 @@ function Hand() {
       <div className="Hand-card">
         <Card value={card2.value} suit={card2.suit} />
       </div>
+      <div className="Hand-score">{score}</div>
+    <div>{score === 21 ? "WINNER" : ''}</div>
     </div>
   )
 }
