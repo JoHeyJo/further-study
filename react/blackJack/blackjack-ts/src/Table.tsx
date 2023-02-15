@@ -3,7 +3,7 @@ import Hand from "./Hand";
 import { createDeckOfCards, randomCard } from "./utils";
 import { IPoints } from "./interfaces"
 import Winner from "./Winner";
-
+import './Table.css'
 const deck = createDeckOfCards();
 
 const card1 = deck[randomCard()];
