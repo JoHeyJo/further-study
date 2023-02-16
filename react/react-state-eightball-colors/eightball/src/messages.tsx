@@ -1,5 +1,5 @@
-
-export const messages: object[] = [
+import { IAnswer } from "./interfaces"
+export const messages: IAnswer[] = [
   { msg: "It is certain.", color: "green" },
   { msg: "It is decidedly so.", color: "green" },
   { msg: "Without a doubt.", color: "green" },

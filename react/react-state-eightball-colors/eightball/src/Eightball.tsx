@@ -17,15 +17,14 @@ const defaultAnswer: IAnswer = { msg: "Think of a question", color: "black" }
 function Eightball() {
   const [answer, setAnswer] = useState<IAnswer>(defaultAnswer);
 
-  /** sets answer to randomly choosen answer when sphere is clicked */
-  function updateAnswer(){
-    
+  /** sets answer to randomly chosen answer when sphere is clicked */
+  function updateAnswer(): void {
     setAnswer(chooseRandom(messages))
   }
-  
+
   return (
     <div className="EightBall-sphere" style={{ backgroundColor: answer.color }}
-    onClick={updateAnswer}>
+      onClick={updateAnswer}>
       <div className="EightBall-text">
         {answer.msg}
       </div>
