@@ -1,13 +1,13 @@
 import React from "react";
 import Hand from "./Hand";
 import { createDeckOfCards, randomCard } from "./utils";
-import { IPoints } from "./interfaces"
+import { IPoints, ICard } from "./interfaces"
 import Winner from "./Winner";
 import './Table.css'
 const deck = createDeckOfCards();
 
-const card1 = deck[randomCard()];
-const card2 = deck[randomCard()];
+const card1: ICard = deck[randomCard()];
+const card2: ICard = deck[randomCard()];
 
 const points: IPoints  = {
   A: '11',
@@ -24,7 +24,8 @@ const points: IPoints  = {
  */
 function Table() {
 
-const score = (+points[card1.value] || +card1.value) + (+points[card2.value] || +card2.value)
+const score: number = (+points[card1.value] || +card1.value) + (+points[card2.value] || +card2.value)
+// const score = points[card1.value]
    
 
   return (

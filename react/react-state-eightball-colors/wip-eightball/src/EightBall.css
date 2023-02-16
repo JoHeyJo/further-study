@@ -5,10 +5,10 @@
 .EightBall-sphere {
   height: 200px;
   width: 200px;
+  /* background-color: black; */
   border-radius: 50%;
   display: inline-block;
   margin-top: 25%;
-  background-color: black;
 }
 
 .EightBall-text {

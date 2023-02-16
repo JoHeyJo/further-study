@@ -8,10 +8,6 @@ interface Ideck {
   suit: string;
 }
 
-interface IDeck {
-  deck: string[];
-}
-
 interface IHand {
   card1: ICard;
   card2: ICard;
@@ -29,4 +25,4 @@ interface IPoints {
   Q: string;
   J: string;
 }
-export type { ICard, Ideck, IHand, IWinner, IPoints };
+export type { ICard, IHand, IWinner, IPoints };
