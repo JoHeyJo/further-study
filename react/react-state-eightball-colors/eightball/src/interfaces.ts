@@ -4,4 +4,10 @@ interface IAnswer {
   color: string;
 }
 
-export type { IAnswer }
+interface IColorCount {
+  [red:string]: number;
+  goldenrod: number;
+  green: number;
+}
+
+export type { IAnswer, IColorCount }

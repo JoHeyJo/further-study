@@ -1,5 +1,9 @@
 .EightBall-interface {
   display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .EightBall-sphere {
@@ -12,6 +16,7 @@
 }
 
 .EightBall-text {
+  text-align: center;
   margin-top: 45%;
   color: white;
   font-weight: bolder;
@@ -21,4 +26,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.EightBall-button {
+  margin: 1rem;
 }
