@@ -9,12 +9,14 @@ import { IContainer } from './interface'
  * Container -> Box
  * 
  */
-function Box({ color }: IContainer) {
+function Box({ color, isChanged }: IContainer) {
+  /**  */
+
   return (
     <div
       className="Box-box"
       style={{ backgroundColor: color }}>
-      {color}
+      {isChanged ? "Changed" : color}
     </div>
   )
 }

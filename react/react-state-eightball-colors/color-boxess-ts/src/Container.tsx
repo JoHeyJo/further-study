@@ -21,13 +21,13 @@ const defaultColors = [
  */
 function Container({ numBoxes = 16 }) {
   const [colors, setColors] = useState<string[]>(createInitialBoxes)
+  const [index, setIndex] = useState<number | null >(null)
 
   /** Return array of random colors */
   function createInitialBoxes() {
     return Array.from(
       { length: numBoxes },
       () => chooseRandom(defaultColors)
-
     )
   }
 
@@ -35,6 +35,7 @@ function Container({ numBoxes = 16 }) {
   function changeColor(): void {
     const newColor = chooseRandom(colors);
     const idx = randomNum(colors.length);
+    setIndex(idx);
     setColors(c => {
       let copy = [...c] // don't forget to create copy of state before mutating
       copy[idx] = newColor
@@ -42,7 +43,7 @@ function Container({ numBoxes = 16 }) {
     })
   }
 
-  const boxes = colors.map((color, i) => <Box key={i} color={color} />)
+  const boxes = colors.map((color, i) => <Box key={i} color={color} isChanged={i === index} />)
 
   return (
     <div className='Container-box'
