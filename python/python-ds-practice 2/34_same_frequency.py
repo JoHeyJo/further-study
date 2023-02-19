@@ -10,3 +10,11 @@ def same_frequency(num1, num2):
         >>> same_frequency(1212, 2211)
         True
     """
+    return freq_counter(str(num1)) == freq_counter(str(num2))
+
+def freq_counter(collection):
+    """Returns frequency counter mapping of collection"""
+    counter = {}
+    for x in collection:
+        counter[x] = counter.get(x, 0) + 1
+    return counter
