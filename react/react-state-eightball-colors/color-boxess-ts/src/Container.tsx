@@ -21,7 +21,7 @@ const defaultColors = [
  */
 function Container({ numBoxes = 16 }) {
   const [colors, setColors] = useState<string[]>(createInitialBoxes)
-  const [index, setIndex] = useState<number | null >(null)
+  const [index, setIndex] = useState<number | null>(null)
 
   /** Return array of random colors */
   function createInitialBoxes() {
@@ -46,10 +46,13 @@ function Container({ numBoxes = 16 }) {
   const boxes = colors.map((color, i) => <Box key={i} color={color} isChanged={i === index} />)
 
   return (
-    <div className='Container-box'
-      onClick={changeColor}>
-      {boxes}
+    <div>
+      <div className='Container-box'>
+        {boxes}
+      </div>
+      <button onClick={changeColor}>Change</button>
     </div>
+
   )
 }
 
