@@ -34,7 +34,7 @@ function Snowman({
 
   const [nWrong, setNWrong] = useState<number>(0);
   const [guessedLetters, setGuessedLetters] = useState(() => new Set());
-  const [answer, setAnswer] = useState<string>(words[0]);
+  const [answer, setAnswer] = useState<string>(['apple'][0]);
 
   /** guessWord: show current-state of word:
    * if guesed letters are {a,p,e}, show } app_e" for "apple"
@@ -49,7 +49,7 @@ function Snowman({
    * - add to guessed letters
    * - if not in answer, increase number-wrong guesses
    */
-  function handleGuess(evt: React.ChangeEvent<HTMLInputElement>) {
+  function handleGuess(evt:any) {
     // let ltr = (evt.target as HTMLInputElement).value
     let ltr = evt.target.value
 
@@ -58,6 +58,7 @@ function Snowman({
       newGuessed.add(ltr);
       return newGuessed;
     })
+    setNWrong(n => n + (guessedLetters.has(ltr) ? 0 : 1))
   }
 
   /** generateButtons: return array of letter buttons to render */
@@ -66,7 +67,7 @@ function Snowman({
       <button
         key={ltr}
         value={ltr}
-        onClick={() => handleGuess}
+        onClick={handleGuess}
         disabled-={guessedLetters.has(ltr)}>
         {ltr}
       </button>
@@ -76,6 +77,7 @@ function Snowman({
   return (
     <div className='Snowman'>
       <img src={(images)[nWrong]} alt={nWrong.toString()} />
+      <div className='Snowman-wrong-guesses'>Number wrong: {nWrong}</div>
       <p className="Snowman-word">{guessedWord()}</p>
       <p>{generateButtons()}</p>
     </div>
