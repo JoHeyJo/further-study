@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ISnowman } from './interfaces';
+import { ENGLISH_WORDS, randomWord } from './words';
 
 import img0 from './0.png';
 import img1 from './1.png';
@@ -27,14 +28,14 @@ const images = [img0, img1, img2, img3, img4, img5, img6];
 
 function Snowman({
   // images = [img0, img1, img2, img3, img4, img5, img6],
-  words = ['apple'],
+  words = ENGLISH_WORDS,
   maxWrong = 6,
 }: ISnowman) {
   /** by default, allow 6 guesses and use provided gallows images. */
 
   const [nWrong, setNWrong] = useState<number>(0);
   const [guessedLetters, setGuessedLetters] = useState(() => new Set());
-  const [answer, setAnswer] = useState<string>(['apple'][0]);
+  const [answer, setAnswer] = useState<string>(randomWord(ENGLISH_WORDS));
 
   /** guessWord: show current-state of word:
    * if guesed letters are {a,p,e}, show } app_e" for "apple"
@@ -79,7 +80,8 @@ function Snowman({
       <img src={(images)[nWrong]} alt={nWrong.toString()} />
       <div className='Snowman-wrong-guesses'>Number wrong: {nWrong}</div>
       <p className="Snowman-word">{guessedWord()}</p>
-      <p>{generateButtons()}</p>
+      <p>{nWrong < maxWrong ? generateButtons() : "You Loose"}</p>
+      <p>The word was {answer}</p>
     </div>
 
   )
