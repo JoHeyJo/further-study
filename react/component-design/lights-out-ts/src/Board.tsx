@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Cell from './Cell';
-import '.Board.css';
+// import '.Board.css';
 import { IBoard } from './interfaces';
 /** Game board of Lights out.
  * 
@@ -29,10 +29,10 @@ function Board({ nrows, ncols, chanceLIghtStartsOn }: IBoard) {
 
   /** Create a board nrows high/ ncols wide, each cell randomly lit or unlit */
   function createBoard(): boolean[] {
-    let initialBoard = [];
+    let initialBoard: [] = [];
     for (let i = 0; i < nrows; i++) {
       for (let j = 0; j < ncols; j++) {
-        [...initialBoard, <Cell flipCellsAroundMe={flipCellsAround} isLit={chanceLIghtStartsOn} />]
+        // [...initialBoard, <Cell flipCellsAroundMe={flipCellsAround} isLit={chanceLIghtStartsOn} />]
       }
     }
     return initialBoard;
@@ -52,7 +52,7 @@ function Board({ nrows, ncols, chanceLIghtStartsOn }: IBoard) {
         // if this coord is actually on board, flip it
 
         if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
-          boardCopy[y][x] = !boardCopy[y][x];
+          // boardCopy[y][x] = !boardCopy[y][x];
         }
       };
       // TODO: Make a (deep) copy of the oldBoard
