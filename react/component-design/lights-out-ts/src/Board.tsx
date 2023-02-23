@@ -24,11 +24,11 @@ import { IBoard } from './interfaces';
  * 
  */
 
-function Board({ nrows, ncols, chanceLIghtStartsOn }) {
-  const [board, setBoard] = useState<string[][]>(createBoard());
+function Board({ nrows, ncols, chanceLIghtStartsOn }: IBoard) {
+  const [board, setBoard] = useState<boolean[]>(createBoard());
 
   /** Create a board nrows high/ ncols wide, each cell randomly lit or unlit */
-  function createBoard(): string[][] {
+  function createBoard(): boolean[] {
     let initialBoard = [];
     for (let i = 0; i < nrows; i++) {
       for (let j = 0; j < ncols; j++) {
@@ -44,11 +44,11 @@ function Board({ nrows, ncols, chanceLIghtStartsOn }) {
   }
 
   /** Flips current cell and all cells around it */
-  function flipCellsAround(coord) {
+  function flipCellsAround(coord: string) {
     setBoard(oldBoard => {
       const [x, y] = coord.split('-').map(Number);
 
-      const flipCell = (y, x, boardCopy) => {
+      const flipCell = (y: number, x: number, boardCopy:boolean) => {
         // if this coord is actually on board, flip it
 
         if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
@@ -60,6 +60,8 @@ function Board({ nrows, ncols, chanceLIghtStartsOn }) {
       // TODO: in the copy, flip this cell and the cells around it
 
       // TODO: return the copy
+      console.log(oldBoard)
+      return oldBoard;
     })
   };
   // if the game is won, just show a winning msg & render nothing else
@@ -69,7 +71,12 @@ function Board({ nrows, ncols, chanceLIghtStartsOn }) {
   // make table board
 
   // TODO
-
+  return (
+    <div>
+      {board}
+    </div>
+  )
 }
+export default Board;
 
 

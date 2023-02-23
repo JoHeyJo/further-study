@@ -1,12 +1,12 @@
 interface ICell {
   flipCellsAroundMe: Function;
-  isLit: boolean;
+  isLit: number;
 }
 
 interface IBoard {
   nrows: number;
   ncols: number;
-  chanceLightStartsOn: number;
+  chanceLIghtStartsOn: number;
 }
 
 export type { ICell, IBoard };
