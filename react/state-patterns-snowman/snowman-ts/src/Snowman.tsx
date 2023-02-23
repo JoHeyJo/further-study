@@ -50,7 +50,7 @@ function Snowman({
    * - add to guessed letters
    * - if not in answer, increase number-wrong guesses
    */
-  function handleGuess(evt:any) {
+  function handleGuess(evt: any) {
     // let ltr = (evt.target as HTMLInputElement).value
     let ltr = evt.target.value
 
@@ -75,13 +75,25 @@ function Snowman({
     ))
   }
 
+  /** resets game: 
+   * - number of guesses set to zero 
+   * - new random word is chosen
+   * - guessedLetters set to new set 
+   * */
+  function reset(): void {
+    setNWrong(0);
+    setAnswer(randomWord(ENGLISH_WORDS))
+    setGuessedLetters(()=> new Set())
+  }
+
   return (
     <div className='Snowman'>
       <img src={(images)[nWrong]} alt={nWrong.toString()} />
       <div className='Snowman-wrong-guesses'>Number wrong: {nWrong}</div>
       <p className="Snowman-word">{guessedWord()}</p>
       <p>{nWrong < maxWrong ? generateButtons() : "You Loose"}</p>
-      <p>The word was {answer}</p>
+      <p>{nWrong === maxWrong && `The word was ${answer}`}</p>
+      <button onClick={reset}>RESET!</button>
     </div>
 
   )
